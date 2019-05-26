@@ -9,15 +9,16 @@ class App extends React.Component {
                 <input className="search" type="search" placeholder="Search for companies..." onInput={this.props.onChangeSearchInput} />
                 <ul>
                 { this.props.showCompanyAutocomplete && this.props.companyAutocompleteList.map(company => 
-                    <li>{company.tickerSymbol} - {company.name}</li>
+                    <li className="search-result" key={company.tickerSymbol}>
+                        <div className="company-name">{company.name}</div>
+                        <div className="company-symbol">{company.tickerSymbol}</div>
+                    </li>
                 )}
                 </ul>
             </div>
         );
     }
 }
-
-console.log("WWWWWWWWWWWWWWWW");
 
 const mapStateToProps = state => ({ ...state });
 
