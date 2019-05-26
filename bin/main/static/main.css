@@ -1,0 +1,50 @@
+@font-face {
+    font-family: "DIN Pro";
+    src: url("fonts/DINPro.woff") format('woff');
+}
+
+@font-face {
+    font-family: "DIN Pro";
+    src: url("fonts/DINPro-Bold.woff") format('woff');
+    font-weight: bold;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'DIN Pro';
+}
+
+body {
+    background: #21ce99;
+    width: 100%;
+    height: 100%;
+    font: 1rem sans-serif;
+}
+
+h1 {
+    color: #EEE;
+    margin-left: 7%;
+}
+
+#root {
+    max-width: 940px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.search {
+    height: 3rem;
+    background-color: #EEE;
+    border: 3px solid #CCC;
+    width: 90%;
+    font-size: 1rem;
+    padding: 1rem;
+    margin: 0 auto;
+    border-radius: 5px;
+}
