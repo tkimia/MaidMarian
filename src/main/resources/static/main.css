@@ -67,20 +67,19 @@ body {
 h1 {
     font-size: 2rem;
     color: #EEE;
-    margin: 1rem;
     font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 #root {
     max-width: 940px;
     height: 100%;
     margin: 0 auto;
+    padding: 2rem;
 }
 
 .search-container {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
+    position: relative;
 }
 
 .search {
@@ -92,6 +91,13 @@ h1 {
     padding: 1rem;
     border-radius: 5px;
     margin-bottom: 1rem;
+}
+
+.search-results-container {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: 2;
 }
 
 .search-result {
@@ -113,4 +119,8 @@ h1 {
 .company-symbol {
     font-size: .7rem;
     color: #666;
+}
+
+.recharts-wrapper {
+    background: #FFF;
 }

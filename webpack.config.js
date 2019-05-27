@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
     entry: './src/main/webapp/index.js',
@@ -25,5 +26,12 @@ module.exports = {
                 }]
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                'IEX_KEY': String(process.env.IEX_KEY)
+            }
+        })
+    ]
 };
