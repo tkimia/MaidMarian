@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { getCompanyByName, getPricesForCompany } from '../actions';
-import CompanyItem from './CompanyItem';
-import StockChart from './StockChart';
+import CompanyItem from '../components/CompanyItem';
+import StockChart from '../components/StockChart';
 
 class App extends React.Component {
     render() {
@@ -17,8 +17,9 @@ class App extends React.Component {
                     )}
                     </ul>
                 </div>
-                { this.props.stockData && <StockChart data={this.props.stockData} />}
-                { !this.props.stockData && this.props.loadingStockData && <div className="loading-ring" /> }
+                { this.props.errorMessage && <p className="error-message">{this.props.errorMessage}</p>}
+                { this.props.loadingStockData && <div className="loading-ring" /> }
+                { this.props.stockData && <StockChart data={this.props.stockData}/>}
             </div>
         );
     }

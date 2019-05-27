@@ -6,6 +6,7 @@ const token = process.env.IEX_KEY || '';
 export const GET_COMPANIES_FINISHED = 'GET_COMPANIES_FINISHED';
 export const GET_PRICES_STARTED = 'GET_PRICES_STARTED';
 export const GET_PRICES_FINISHED = 'GET_PRICES_FINISHED';
+export const GET_PRICES_ERROR = 'GET_PRICES_ERROR';
 
 export function getCompanyByName(namePrefix) {
     if (!namePrefix) {
@@ -37,6 +38,9 @@ export function getPricesForCompany(company) {
                     avg: ((dayPrices.open + dayPrices.close + dayPrices.high + dayPrices.low)/4).toFixed(2)
                 }))
             }
+        }))
+        .catch(err => dispatch({
+            type: GET_PRICES_ERROR
         }));
     }
 }

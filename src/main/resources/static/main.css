@@ -125,6 +125,10 @@ h1 {
     background: #FFF;
 }
 
+.error-message {
+    color: #EEE;
+}
+
 .loading-ring {
     display: inline-block;
     width: 64px;

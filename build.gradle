@@ -40,4 +40,4 @@ task webpack(type: NpmTask, dependsOn: 'npmInstall') {
 	args = ['run', 'build']
 }
 
-bootRun.dependsOn webpack
+compileJava.dependsOn webpack
