@@ -32,7 +32,7 @@ export function getPricesForCompany(company) {
                 company, 
                 prices: response.data.map(dayPrices => ({
                     ...dayPrices, 
-                    avg: (dayPrices.open + dayPrices.close + dayPrices.high + dayPrices.low)/4
+                    avg: ((dayPrices.open + dayPrices.close + dayPrices.high + dayPrices.low)/4).toFixed(2)
                 }))
             }
         }));
