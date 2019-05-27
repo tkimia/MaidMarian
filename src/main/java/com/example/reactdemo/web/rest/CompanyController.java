@@ -2,6 +2,7 @@ package com.example.reactdemo.web.rest;
 
 import com.example.reactdemo.domain.Company;
 import com.example.reactdemo.repositories.CompanyRepository;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,7 +22,7 @@ public class CompanyController {
 
     @GetMapping("/companies")
     List<Company> getCompanyByNamePrefix(@RequestParam String namePrefix) {
-        if (namePrefix.isBlank()) {
+        if (StringUtils.isBlank(namePrefix)) {
             return Collections.emptyList();
         }
 
