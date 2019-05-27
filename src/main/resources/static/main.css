@@ -64,11 +64,10 @@ body {
     font: 1rem sans-serif;
 }
 
-h1 {
+h1, h2 {
     font-size: 2rem;
     color: #EEE;
     font-weight: bold;
-    margin-bottom: 1rem;
 }
 
 #root {
@@ -90,7 +89,7 @@ h1 {
     width: 100%;
     padding: 1rem;
     border-radius: 5px;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
 }
 
 .search-results-container {

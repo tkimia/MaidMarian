@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import { averageWithoutZeros } from '../utils';
 
 const API_ROOT = 'https://cloud.iexapis.com/stable';
 const token = process.env.IEX_KEY || '';
@@ -35,7 +36,8 @@ export function getPricesForCompany(company) {
                 company, 
                 prices: response.data.map(dayPrices => ({
                     ...dayPrices, 
-                    avg: ((dayPrices.open + dayPrices.close + dayPrices.high + dayPrices.low)/4).toFixed(2)
+                    // Sometimes IEX returns zeroes for data it doesn't have. Don't want that in the average.
+                    avg: averageWithoutZeros(dayPrices.open, dayPrices.close, dayPrices.high, dayPrices.low).toFixed(2)
                 }))
             }
         }))
