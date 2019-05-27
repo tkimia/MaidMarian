@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { getCompanyByName, getPricesForCompany } from '../actions';
 import CompanyItem from './CompanyItem';
 import StockChart from './StockChart';
+
 class App extends React.Component {
     render() {
         return (
@@ -17,6 +18,7 @@ class App extends React.Component {
                     </ul>
                 </div>
                 { this.props.stockData && <StockChart data={this.props.stockData} />}
+                { !this.props.stockData && this.props.loadingStockData && <div className="loading-ring" /> }
             </div>
         );
     }

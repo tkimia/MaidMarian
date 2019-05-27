@@ -1,9 +1,10 @@
-import { GET_COMPANIES_FINISHED, GET_PRICES_FINISHED } from "./actions";
+import { GET_COMPANIES_FINISHED, GET_PRICES_FINISHED, GET_PRICES_STARTED } from "./actions";
 
 const defaultState = {
     showCompanyList: false,
     companiesFound: [],
-    stockData: null
+    stockData: null,
+    loadingStockData: false
 }
 
 export default (state = defaultState, action) => {
@@ -14,11 +15,17 @@ export default (state = defaultState, action) => {
                 companiesFound: action.payload,
                 showCompanyList: true,
             }
+        case GET_PRICES_STARTED:
+            return {
+                ...state,
+                loadingStockData: true
+            }
         case GET_PRICES_FINISHED:
             return {
                 ...state,
                 showCompanyList: false,
-                stockData: action.payload
+                stockData: action.payload,
+                loadingStockData: false
             }
         default:
             return state;
