@@ -30,3 +30,14 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+
+node {
+	version = "10.15.3"
+	download = true
+}
+
+task webpack(type: NpmTask, dependsOn: 'npmInstall') {
+	args = ['run', 'build']
+}
+
+bootRun.dependsOn webpack
